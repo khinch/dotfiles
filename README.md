@@ -6,5 +6,8 @@ Use `stow` to create symlinks to dotfiles to quickly recreate a familar and prod
 
 # Tools
 ## Alacritty
+`stow alacritty`
 ## Neovim
-
+`stow neovim`
+## Yazi
+`stow yazi`
