@@ -33,3 +33,7 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+-- Neotree
+vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>')
+--vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
