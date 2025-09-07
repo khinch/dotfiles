@@ -1,5 +1,5 @@
 -- colour scheme
-vim.cmd("source $HOME/.config/nvim/colors/root-loops.vim")
+--vim.cmd("source $HOME/.config/nvim/colors/root-loops.vim")
 
 -- wayland clipboard
 -- set clipboard=unnamed
