@@ -46,4 +46,3 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
-require("config.lazy")
