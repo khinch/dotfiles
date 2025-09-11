@@ -31,6 +31,9 @@
       "tooltip": true,
       "tooltip-format": "{app}: {title}"
   },
+  "sway/window": {
+    "format": "{app_id}"
+  },
   "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
