@@ -1,48 +1,39 @@
--- colour scheme
---vim.cmd("source $HOME/.config/nvim/colors/root-loops.vim")
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
--- wayland clipboard
--- set clipboard=unnamed
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- Define clipboard configuration
-vim.opt.clipboard = "unnamedplus"
-
--- Perplexity thinks this should be enabled by default. Uncomment if it is wrong
---vim.g.clipboard = {
---  name = "wl-clipboard",
---  copy = {
---    ["+"] = "wl-copy --type text/plain",
---    ["*"] = "wl-copy --type text/plain",
---  },
---  paste = {
---    ["+"] = "wl-paste --type text/plain",
---    ["*"] = "wl-paste --type text/plain",
---  },
---  cache_enabled = true,
---}
-
--- Copy/paste over SSH
-if os.getenv("SSH_TTY") then
-  vim.g.clipboard = {
-    name = 'OSC 52',
-    copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-    },
-    paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-    },
-  }
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
-vim.wo.number = true
+vim.opt.rtp:prepend(lazypath)
+
+local lazy_config = require "configs.lazy"
+
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)
+
+-- Kieren
 vim.wo.relativenumber = true
-
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-
