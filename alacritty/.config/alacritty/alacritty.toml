@@ -1,6 +1,6 @@
 general.import = [
-  "~/.config/alacritty/themes/catppuccin-mocha.yaml"
-  #"~/.config/alacritty/themes/root-loops.yaml"
+  #"~/.config/alacritty/themes/catppuccin-mocha.toml"
+  "~/.config/alacritty/themes/root-loops.toml"
 ]
 
 [env]
