@@ -10,6 +10,9 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+[language-server.rust-analyzer.config.cargo]
+allFeatures = true
+
 [language-server.rust-analyzer.config.files]
 watcher = "server"
 

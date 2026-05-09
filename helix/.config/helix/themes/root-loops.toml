@@ -1,6 +1,6 @@
 # Root Loops (https://rootloops.sh?sugar=7&colors=8&sogginess=2&flavor=1&fruit=8&milk=1)
 
-"ui.background" = { fg = "background"}
+"ui.background" = { fg = "white"}
 "ui.background.separator" = { fg = "gray" }
 "ui.text" = { fg = "foreground" }
 "ui.text.focus" = { fg = "white" }

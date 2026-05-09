@@ -4,6 +4,7 @@ theme = "root-loops"
 [editor]
 line-number = "relative"
 bufferline = "always"
+popup-border = "all"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -15,3 +16,5 @@ hidden = false
 "A-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 "A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 "A-o" = ["yank_to_clipboard", ":sh aichat \"explain this code\""]
+"C-j" = ["page_down"]
+"C-k" = ["page_up"]
