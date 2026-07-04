@@ -1,1 +1,7 @@
 @theme "./theme.rasi"
+
+/* Main box dimensions. Can be %, px or ch */
+window {
+    width: 40%;
+    height: 40%;
+}
