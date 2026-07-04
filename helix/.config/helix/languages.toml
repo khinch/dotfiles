@@ -10,6 +10,13 @@ inlayHints.discriminantHints.enable = "fieldless"
 inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
 
+# Leptos
+procMacro = {ignored = { leptos_macro = [
+  # Optional:
+  # "component",
+  "server"
+]}}
+
 [language-server.rust-analyzer.config.cargo]
 allFeatures = true
 
@@ -73,3 +80,76 @@ args = { attachCommands = [ "platform select remote-gdb-server", "platform conne
 [[grammar]]
 name = "rust"
 source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "261b20226c04ef601adbdf185a800512a5f66291" }
+
+# --- Language servers ---
+
+[language-server.javascript-typescript-langserver]
+command = "javascript-typescript-stdio"
+
+[language-server.emmet-ls]
+command = "emmet-ls"
+args = ["--stdio"]
+
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.tailwindcss-language-server]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+# --- JavaScript / TypeScript ---
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "javascript-typescript-langserver"
+]
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "javascript-typescript-langserver"
+]
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [
+  "javascript-typescript-langserver",
+  "emmet-ls"
+]
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [
+  "javascript-typescript-langserver",
+  "emmet-ls"
+]
+auto-format = true
+
+# --- HTML ---
+
+[[language]]
+name = "html"
+language-servers = [
+  "vscode-html-language-server",
+  "emmet-ls"
+]
+auto-format = true
+
+# Optional: CSS & Tailwind
+
+[[language]]
+name = "css"
+language-servers = [
+  "vscode-css-language-server",
+  "tailwindcss-language-server"
+]
+auto-format = true
