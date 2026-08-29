@@ -86,10 +86,6 @@ source = { git = "https://github.com/tree-sitter/tree-sitter-rust", rev = "261b2
 [language-server.javascript-typescript-langserver]
 command = "javascript-typescript-stdio"
 
-[language-server.emmet-ls]
-command = "emmet-ls"
-args = ["--stdio"]
-
 [language-server.vscode-html-language-server]
 command = "vscode-html-language-server"
 args = ["--stdio"]
@@ -109,6 +105,7 @@ name = "javascript"
 language-servers = [
   "javascript-typescript-langserver"
 ]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
 auto-format = true
 
 [[language]]
@@ -116,32 +113,31 @@ name = "typescript"
 language-servers = [
   "javascript-typescript-langserver"
 ]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
 language-servers = [
-  "javascript-typescript-langserver",
-  "emmet-ls"
+  "javascript-typescript-langserver"
 ]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "jsx"
 language-servers = [
-  "javascript-typescript-langserver",
-  "emmet-ls"
+  "javascript-typescript-langserver"
 ]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
 auto-format = true
 
 # --- HTML ---
 
 [[language]]
 name = "html"
-language-servers = [
-  "vscode-html-language-server",
-  "emmet-ls"
-]
+language-servers = ["vscode-html-language-server"]
+formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
 
 # Optional: CSS & Tailwind
@@ -152,4 +148,5 @@ language-servers = [
   "vscode-css-language-server",
   "tailwindcss-language-server"
 ]
+formatter = { command = "prettier", args = ["--parser", "css"] }
 auto-format = true
