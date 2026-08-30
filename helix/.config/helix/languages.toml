@@ -17,6 +17,11 @@ procMacro = {ignored = { leptos_macro = [
   "server"
 ]}}
 
+# For Leptos the following line provides formatting for leptos
+# view! macros, but it is preferable to use rust-analyzer.toml
+# and rustfmt.toml in the root directory of the project. 
+# rustfmt.overrideCommand = ["leptosfmt", "--stdin", "--rustfmt"]
+
 [language-server.rust-analyzer.config.cargo]
 allFeatures = true
 

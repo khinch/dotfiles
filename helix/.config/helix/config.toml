@@ -1,5 +1,6 @@
-#theme = "catppuccin_mocha"
-theme = "root-loops"
+# theme = "catppuccin_mocha"
+# theme = "root-loops"
+theme = "gruvbox_dark_soft"
 
 [editor]
 line-number = "relative"
